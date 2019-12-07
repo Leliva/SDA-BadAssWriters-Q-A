@@ -1,8 +1,7 @@
 package com.sda.badAssWritersQA.badAssWritersQA.model;
 
-import org.springframework.data.annotation.Id;
-
 import javax.persistence.Entity;
+import javax.persistence.*;
 import javax.persistence.GeneratedValue;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Size;
@@ -15,13 +14,13 @@ public class Questionnaire {
     private int id;
     private String name;
     @OneToMany
-    private Collection <Question> question;
+    private Collection<Question> question;
 
     public Questionnaire(String name) {
         this.name = name;
     }
 
-    public Questionnaire(){
+    public Questionnaire() {
 
     }
 
