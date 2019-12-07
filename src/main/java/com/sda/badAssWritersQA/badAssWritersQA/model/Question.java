@@ -8,7 +8,7 @@ import java.util.Collection;
 public class Question {
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
     private String question;
     @OneToMany
     private Collection<Answer> answers;
@@ -38,7 +38,7 @@ public class Question {
         this.answers = answers;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

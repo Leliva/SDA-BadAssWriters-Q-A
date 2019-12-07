@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 public class Answer {
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
     private String description;
     private boolean correctAnswer;
 
@@ -39,7 +39,7 @@ public class Answer {
         this.correctAnswer = correctAnswer;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
