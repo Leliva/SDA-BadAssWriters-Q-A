@@ -38,4 +38,12 @@ public class Answer {
     public void setCorrectAnswer(boolean correctAnswer) {
         this.correctAnswer = correctAnswer;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

@@ -37,4 +37,12 @@ public class Question {
     public void setAnswers(Collection<Answer> answers) {
         this.answers = answers;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

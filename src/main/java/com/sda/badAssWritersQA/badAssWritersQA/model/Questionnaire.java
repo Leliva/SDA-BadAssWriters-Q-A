@@ -11,14 +11,11 @@ import java.util.Collection;
 public class Questionnaire {
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
     private String name;
     @OneToMany
     private Collection<Question> question;
 
-    public Questionnaire(String name) {
-        this.name = name;
-    }
 
     public Questionnaire() {
 
@@ -43,5 +40,13 @@ public class Questionnaire {
 
     public void setQuestion(Collection<Question> question) {
         this.question = question;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }
