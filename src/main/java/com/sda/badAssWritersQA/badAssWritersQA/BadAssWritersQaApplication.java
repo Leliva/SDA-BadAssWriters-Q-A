@@ -23,160 +23,160 @@ public class BadAssWritersQaApplication {
         SpringApplication.run(BadAssWritersQaApplication.class, args);
     }
 
-    @Bean
-    CommandLineRunner initDatabase(AnswerRepository answerRepository,
-                                   QuestionRepository questionRepository,
-                                   QuestionnaireRepository questionnaireRepository) {
-        return args -> {
+	@Bean
+	CommandLineRunner initDatabase(AnswerRepository answerRepository,
+								   QuestionRepository questionRepository,
+								   QuestionnaireRepository questionnaireRepository) {
+		return args -> {
 
-            Answer answer1 = answerRepository.save(new Answer("odp1", true));
-            Answer answer2 = answerRepository.save(new Answer("odp2", false));
+			Answer answer1 = answerRepository.save(new Answer("odp1", true));
+			Answer answer2 = answerRepository.save(new Answer("odp2", false));
 
-            Collection<Answer> answer = new Collection<Answer>() {
-                @Override
-                public int size() {
-                    return 0;
-                }
+			Collection<Answer> answer = new Collection<Answer>() {
+				@Override
+				public int size() {
+					return 0;
+				}
 
-                @Override
-                public boolean isEmpty() {
-                    return false;
-                }
+				@Override
+				public boolean isEmpty() {
+					return false;
+				}
 
-                @Override
-                public boolean contains(Object o) {
-                    return false;
-                }
+				@Override
+				public boolean contains(Object o) {
+					return false;
+				}
 
-                @Override
-                public Iterator<Answer> iterator() {
-                    return null;
-                }
+				@Override
+				public Iterator<Answer> iterator() {
+					return null;
+				}
 
-                @Override
-                public Object[] toArray() {
-                    return new Object[0];
-                }
+				@Override
+				public Object[] toArray() {
+					return new Object[0];
+				}
 
-                @Override
-                public <T> T[] toArray(T[] ts) {
-                    return null;
-                }
+				@Override
+				public <T> T[] toArray(T[] ts) {
+					return null;
+				}
 
-                @Override
-                public boolean add(Answer answer) {
-                    return false;
-                }
+				@Override
+				public boolean add(Answer answer) {
+					return false;
+				}
 
-                @Override
-                public boolean remove(Object o) {
-                    return false;
-                }
+				@Override
+				public boolean remove(Object o) {
+					return false;
+				}
 
-                @Override
-                public boolean containsAll(Collection<?> collection) {
-                    return false;
-                }
+				@Override
+				public boolean containsAll(Collection<?> collection) {
+					return false;
+				}
 
-                @Override
-                public boolean addAll(Collection<? extends Answer> collection) {
-                    return false;
-                }
+				@Override
+				public boolean addAll(Collection<? extends Answer> collection) {
+					return false;
+				}
 
-                @Override
-                public boolean removeAll(Collection<?> collection) {
-                    return false;
-                }
+				@Override
+				public boolean removeAll(Collection<?> collection) {
+					return false;
+				}
 
-                @Override
-                public boolean retainAll(Collection<?> collection) {
-                    return false;
-                }
+				@Override
+				public boolean retainAll(Collection<?> collection) {
+					return false;
+				}
 
-                @Override
-                public void clear() {
+				@Override
+				public void clear() {
 
-                }
-            };
-            answer.add(answer1);
-            answer.add(answer2);
+				}
+			};
+			answer.add(answer1);
+			answer.add(answer2);
 
-            Question question1 = questionRepository.save(new Question("Czy 2+2 to 4?", answer));
-            Question question2 = questionRepository.save(new Question("Czy Warszawa to wieś?", answer));
+			Question question1 = questionRepository.save(new Question("Czy 2+2 to 4?", answer));
+			Question question2 = questionRepository.save(new Question("Czy Warszawa to wieś?", answer));
 
-            Collection<Question> questions = new Collection<Question>() {
-                @Override
-                public int size() {
-                    return 0;
-                }
+			Collection<Question> questions = new Collection<Question>() {
+				@Override
+				public int size() {
+					return 0;
+				}
 
-                @Override
-                public boolean isEmpty() {
-                    return false;
-                }
+				@Override
+				public boolean isEmpty() {
+					return false;
+				}
 
-                @Override
-                public boolean contains(Object o) {
-                    return false;
-                }
+				@Override
+				public boolean contains(Object o) {
+					return false;
+				}
 
-                @Override
-                public Iterator<Question> iterator() {
-                    return null;
-                }
+				@Override
+				public Iterator<Question> iterator() {
+					return null;
+				}
 
-                @Override
-                public Object[] toArray() {
-                    return new Object[0];
-                }
+				@Override
+				public Object[] toArray() {
+					return new Object[0];
+				}
 
-                @Override
-                public <T> T[] toArray(T[] ts) {
-                    return null;
-                }
+				@Override
+				public <T> T[] toArray(T[] ts) {
+					return null;
+				}
 
-                @Override
-                public boolean add(Question question) {
-                    return false;
-                }
+				@Override
+				public boolean add(Question question) {
+					return false;
+				}
 
-                @Override
-                public boolean remove(Object o) {
-                    return false;
-                }
+				@Override
+				public boolean remove(Object o) {
+					return false;
+				}
 
-                @Override
-                public boolean containsAll(Collection<?> collection) {
-                    return false;
-                }
+				@Override
+				public boolean containsAll(Collection<?> collection) {
+					return false;
+				}
 
-                @Override
-                public boolean addAll(Collection<? extends Question> collection) {
-                    return false;
-                }
+				@Override
+				public boolean addAll(Collection<? extends Question> collection) {
+					return false;
+				}
 
-                @Override
-                public boolean removeAll(Collection<?> collection) {
-                    return false;
-                }
+				@Override
+				public boolean removeAll(Collection<?> collection) {
+					return false;
+				}
 
-                @Override
-                public boolean retainAll(Collection<?> collection) {
-                    return false;
-                }
+				@Override
+				public boolean retainAll(Collection<?> collection) {
+					return false;
+				}
 
-                @Override
-                public void clear() {
+				@Override
+				public void clear() {
 
-                }
-            };
-            questions.add(question1);
-            questions.add(question2);
+				}
+			};
+			questions.add(question1);
+			questions.add(question2);
 
+			Questionnaire questionnaire1 = questionnaireRepository.save( new Questionnaire("Matematyka", questions));
+			Questionnaire questionnaire2 = questionnaireRepository.save( new Questionnaire("Geografia", questions));
 
-            Questionnaire questionnaire1 = new Questionnaire("Matematyka", questions);
-
-        };
-    }
+		};
+	}
 
 }
