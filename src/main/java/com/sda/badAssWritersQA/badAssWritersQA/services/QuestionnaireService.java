@@ -1,4 +1,4 @@
-package com.sda.badAssWritersQA.badAssWritersQA.service;
+package com.sda.badAssWritersQA.badAssWritersQA.services;
 
 import com.sda.badAssWritersQA.badAssWritersQA.model.Questionnaire;
 import com.sda.badAssWritersQA.badAssWritersQA.repository.QuestionnaireRepository;

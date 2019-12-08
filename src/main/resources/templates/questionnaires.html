@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<div class="container-fluid">
+<div class="container">
 
 <h1>Lista Ankiet</h1>
     <a th:href="@{/spittles}"> Utwórz nową ankietę</a> </br>
@@ -20,7 +20,11 @@
     <a th:text="'Hello, '+${message}"></a>
 
     <ol>
-        <li th:each="questionnaires : ${questionnaires}" th:text="${questionnaires}"></li>
+        <li >
+            <div class="button">
+            <a th:href="@{/singleQuestionnaire(id=${questionnaire.getId()})}" th:each="questionnaire : ${questionnaires}" th:text="${questionnaire.getName()}"></a>
+            </div>
+        </li>
     </ol>
 
 </div>
