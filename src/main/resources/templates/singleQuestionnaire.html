@@ -6,35 +6,31 @@
 
     <title>View of single questionnaire</title>
 
-    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/main.css}"/>
+
 </head>
 <body>
 
 <div class="container">
     <!-- Content here -->
 
+<!--    tutaj będzie potrzebny formularz form i radio button group -->
+    <ol>
 
-<h1>Lista Ankiet</h1>
-<a th:href="@{/spittles}"> Utwórz nową ankietę</a> </br>
-<a th:href="@{/spitter/register}">Utwórz nowy quiz</a>
-<a th:text="'Hello, '+${message}"></a>
-
-<ol>
-
-    <div>
-        <li th:each="singleQuestionnair : ${singleQuestionnaire}">
-        <div class="shadow p-1 mb-1 bg-dark-blue rounded" th:text="${singleQuestionnair.getQuestion()}"></div>
-        <div th:each="singleAnswere: ${singleAnswer}">
-            <div class="shadow-lg p-1 mb-1 bg-white rounded col-sm-2 button" th:text="${singleAnswere.getDescription()}"></div>
+        <div class="bg-red">
+            <li th:each="question1 : ${singleQuestionnaire.getQuestion()}">
+                <div class="alert-primary" th:text="${question1.getQuestion()}"></div>
+                <div th:each="singleAnswere: ${question1.getAnswers()}">
+                    <div class="border-1">
+                        <button type="button" class="btn btn-primary" th:text="${singleAnswere.getDescription()}">
+                        </button>
+                    </div>
+                </div>
+            </li>
         </div>
-        </li>
-    </div>
 
-</ol>
-
-
-</ol>
+    </ol>
 
 
 </div>
