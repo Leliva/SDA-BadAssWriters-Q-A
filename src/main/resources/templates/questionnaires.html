@@ -1,6 +1,5 @@
 <html
-        lang="pl" xmlns="http://www.w3.org/1999/xhtml"
-        xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+        lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8" lang="pl">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,7 +17,11 @@
 <h1>Lista Ankiet</h1>
     <a th:href="@{/spittles}"> Utwórz nową ankietę</a> </br>
 <a th:href="@{/spitter/register}">Utwórz nowy quiz</a>
-    <a th:text="'Hello,'"></a>
+    <a th:text="'Hello, '+${message}"></a>
+
+    <ol>
+        <li th:each="questionnaires : ${questionnaires}" th:text="${questionnaires}"></li>
+    </ol>
 
 </div>
 </body>

@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Answer {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String description;
     private boolean correctAnswer;
@@ -45,5 +45,10 @@ public class Answer {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString(){
+        return description;
     }
 }

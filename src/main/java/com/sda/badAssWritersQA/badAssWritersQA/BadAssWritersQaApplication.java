@@ -32,19 +32,23 @@ public class BadAssWritersQaApplication {
 			Answer answer1 = answerRepository.save(new Answer("Nie",false));
 			Answer answer2 = answerRepository.save(new Answer("Tak",true));
 
-			List<Answer> answers = new ArrayList<>();
+			List<Answer> answers1 = new ArrayList<>();
+			List<Answer> answers2 = new ArrayList<>();
 
-			answers.add(answer1);
-			answers.add(answer2);
+			answers1.add(answer1);
+			answers1.add(answer2);
 
 			Question question1 = questionRepository.save(
-					new Question("Czy Szymon jest fajny",answers));
+					new Question("Czy Warszawa jest stolicą Polski?",answers1));
+
+			Question question2 = questionRepository.save(new Question("Czy Polska leży w Europie?",answers1));
 
 			List<Question> questions = new ArrayList<>();
 
 			questions.add(question1);
+			questions.add(question2);
 
-			Questionnaire questionnaire1 = questionnaireRepository.save(new Questionnaire("Questionaire 1", questions));
+			questionnaireRepository.save(new Questionnaire("Questionaire 1", questions));
 
 		};
 	}

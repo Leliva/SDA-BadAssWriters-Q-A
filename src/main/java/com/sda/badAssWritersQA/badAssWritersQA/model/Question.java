@@ -7,10 +7,10 @@ import java.util.Collection;
 @Entity
 public class Question {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String question;
-    @OneToMany
+    @ManyToMany
     private Collection<Answer> answers;
 
     public Question(){
@@ -44,5 +44,10 @@ public class Question {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString(){
+        return question+" "+answers;
     }
 }

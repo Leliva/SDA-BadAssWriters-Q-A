@@ -10,7 +10,7 @@ import java.util.Collection;
 @Entity
 public class Questionnaire {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
     @OneToMany
@@ -48,5 +48,10 @@ public class Questionnaire {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString(){
+        return name+" "+question;
     }
 }
