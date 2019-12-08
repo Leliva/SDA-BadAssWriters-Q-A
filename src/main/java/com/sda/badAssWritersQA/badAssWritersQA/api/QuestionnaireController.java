@@ -2,6 +2,7 @@ package com.sda.badAssWritersQA.badAssWritersQA.api;
 
 
 import com.sda.badAssWritersQA.badAssWritersQA.model.Question;
+import com.sda.badAssWritersQA.badAssWritersQA.services.AnswerService;
 import com.sda.badAssWritersQA.badAssWritersQA.services.QuestionService;
 import com.sda.badAssWritersQA.badAssWritersQA.services.QuestionnaireService;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,13 +17,16 @@ public class QuestionnaireController {
 
     private QuestionnaireService questionnaireService;
     private QuestionService questionService;
+    private AnswerService answerService;
 
 
 
     public QuestionnaireController(QuestionnaireService questionnaireService,
-                                   QuestionService questionService){
+                                   QuestionService questionService,
+                                   AnswerService answerService){
         this.questionnaireService = questionnaireService;
         this.questionService = questionService;
+        this.answerService = answerService;
     }
 
 
@@ -41,6 +45,10 @@ public class QuestionnaireController {
     public String mainSingleQuestionnaire(Model model){
         model.addAttribute("message", message);
         model.addAttribute("singleQuestionnaire",questionService.getAllQuestions());
+        model.addAttribute("singleAnswer",answerService.getAllAnswers());
         return "singleQuestionnaire";
     }
+
+
+
 }

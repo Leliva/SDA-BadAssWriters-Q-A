@@ -4,6 +4,8 @@ import com.sda.badAssWritersQA.badAssWritersQA.model.Answer;
 import com.sda.badAssWritersQA.badAssWritersQA.repository.AnswerRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AnswerService {
 
@@ -19,5 +21,9 @@ public class AnswerService {
 
     public Answer createNewAnswer(Answer answer) {
         return answerRepository.save(answer);
+    }
+
+    public List<Answer> getAllAnswers() {
+        return answerRepository.findAll();
     }
 }
