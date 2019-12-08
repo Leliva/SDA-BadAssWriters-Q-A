@@ -1,30 +1,31 @@
-<html
-        lang="pl" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">>
 <head>
     <meta charset="utf-8" lang="pl">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Spring Boot Thymeleaf Hello World Example</title>
+    <title>View of single questionnaire</title>
 
     <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/main.css}"/>
-
 </head>
 <body>
 
 <div class="container">
+    <!-- Content here -->
+
 
 <h1>Lista Ankiet</h1>
-    <a th:href="@{/spittles}"> Utwórz nową ankietę</a> </br>
+<a th:href="@{/spittles}"> Utwórz nową ankietę</a> </br>
 <a th:href="@{/spitter/register}">Utwórz nowy quiz</a>
-    <a th:text="'Hello, '+${message}"></a>
+<a th:text="'Hello, '+${message}"></a>
 
-    <ol>
-        <li >
-            <a th:href="@{/singleQuestionnaire}" th:each="questionnaire : ${questionnaires}" th:text="${questionnaire.getName()}"></a>
-        </li>
-    </ol>
+<ol>
+    <li th:each="singleQuestionnair : ${singleQuestionnaire}" th:text="${singleQuestionnair}"></li>
+</ol>
+
 
 </div>
+
 </body>
 </html>

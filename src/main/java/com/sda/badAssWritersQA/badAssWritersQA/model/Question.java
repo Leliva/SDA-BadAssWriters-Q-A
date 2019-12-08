@@ -1,6 +1,8 @@
 package com.sda.badAssWritersQA.badAssWritersQA.model;
 
 
+import org.hibernate.annotations.ManyToAny;
+
 import javax.persistence.*;
 import java.util.Collection;
 
