@@ -24,9 +24,9 @@
 
     <div>
         <li th:each="singleQuestionnair : ${singleQuestionnaire}">
-        <div  th:text="${singleQuestionnair.getQuestion()}"></div>
+        <div class="shadow p-1 mb-1 bg-dark-blue rounded" th:text="${singleQuestionnair.getQuestion()}"></div>
         <div th:each="singleAnswere: ${singleAnswer}">
-            <div th:text="${singleAnswere.getDescription()}"></div>
+            <div class="shadow-lg p-1 mb-1 bg-white rounded col-sm-2 button" th:text="${singleAnswere.getDescription()}"></div>
         </div>
         </li>
     </div>

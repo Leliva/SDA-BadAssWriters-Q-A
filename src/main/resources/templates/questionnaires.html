@@ -21,7 +21,9 @@
 
     <ol>
         <li >
-            <a th:href="@{/singleQuestionnaire}" th:each="questionnaire : ${questionnaires}" th:text="${questionnaire.getName()}"></a>
+            <div class="button">
+            <a th:href="@{/singleQuestionnaire(id=${questionnaire.getId()})}" th:each="questionnaire : ${questionnaires}" th:text="${questionnaire.getName()}"></a>
+            </div>
         </li>
     </ol>
 
