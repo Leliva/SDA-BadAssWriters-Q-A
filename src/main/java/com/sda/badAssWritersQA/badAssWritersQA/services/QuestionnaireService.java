@@ -1,5 +1,6 @@
 package com.sda.badAssWritersQA.badAssWritersQA.services;
 
+import com.sda.badAssWritersQA.badAssWritersQA.exeptions.QuestionnaireNotFoundExeption;
 import com.sda.badAssWritersQA.badAssWritersQA.model.Questionnaire;
 import com.sda.badAssWritersQA.badAssWritersQA.repository.QuestionnaireRepository;
 import org.springframework.stereotype.Service;
@@ -7,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class QuestionnaireService {
+public class QuestionnaireService extends QuestionnaireNotFoundExeption {
 
     private QuestionnaireRepository questionnaireRepository;
 

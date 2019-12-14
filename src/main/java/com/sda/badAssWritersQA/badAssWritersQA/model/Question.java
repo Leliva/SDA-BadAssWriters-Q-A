@@ -12,7 +12,7 @@ public class Question {
     @GeneratedValue
     private long id;
     private String question;
-    @ManyToMany
+    @OneToMany
     private Collection<Answer> answers;
 
     public Question(){

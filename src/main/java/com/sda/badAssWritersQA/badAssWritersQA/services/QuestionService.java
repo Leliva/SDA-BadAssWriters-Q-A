@@ -1,6 +1,7 @@
 package com.sda.badAssWritersQA.badAssWritersQA.services;
 
 
+import com.sda.badAssWritersQA.badAssWritersQA.exeptions.QuestionNotFoundException;
 import com.sda.badAssWritersQA.badAssWritersQA.model.Question;
 import com.sda.badAssWritersQA.badAssWritersQA.repository.QuestionRepository;
 import org.hibernate.hql.internal.QueryExecutionRequestException;

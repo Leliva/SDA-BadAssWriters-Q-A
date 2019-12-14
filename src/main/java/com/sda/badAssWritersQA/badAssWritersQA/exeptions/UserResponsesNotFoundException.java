@@ -1,4 +1,4 @@
-package com.sda.badAssWritersQA.badAssWritersQA.services;
+package com.sda.badAssWritersQA.badAssWritersQA.exeptions;
 
 public class UserResponsesNotFoundException extends Exception{
     public UserResponsesNotFoundException() {

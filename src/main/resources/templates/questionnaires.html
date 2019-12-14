@@ -14,15 +14,16 @@
 
 <div class="container">
 
-<h1>Lista Ankiet</h1>
+    <h1>Lista Ankiet</h1>
     <a th:href="@{/spittles}"> Utwórz nową ankietę</a> </br>
-<a th:href="@{/spitter/register}">Utwórz nowy quiz</a>
+    <a th:href="@{/spitter/register}">Utwórz nowy quiz</a>
     <a th:text="'Hello, '+${message}"></a>
 
     <ol>
-        <li >
+        <li>
             <div class="button">
-            <a th:href="@{/singleQuestionnaire(id=${questionnaire.getId()})}" th:each="questionnaire : ${questionnaires}" th:text="${questionnaire.getName()}"></a>
+                <a th:href="@{/singleQuestionnaire(id=${questionnaire.getId()})}"
+                   th:each="questionnaire : ${questionnaires}" th:text="${questionnaire.getName()}"></a>
             </div>
         </li>
     </ol>

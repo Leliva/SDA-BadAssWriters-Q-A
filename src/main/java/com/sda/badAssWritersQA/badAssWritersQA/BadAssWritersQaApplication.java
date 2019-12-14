@@ -3,9 +3,13 @@ package com.sda.badAssWritersQA.badAssWritersQA;
 import com.sda.badAssWritersQA.badAssWritersQA.model.Answer;
 import com.sda.badAssWritersQA.badAssWritersQA.model.Question;
 import com.sda.badAssWritersQA.badAssWritersQA.model.Questionnaire;
+import com.sda.badAssWritersQA.badAssWritersQA.model.UserResponses;
 import com.sda.badAssWritersQA.badAssWritersQA.repository.AnswerRepository;
 import com.sda.badAssWritersQA.badAssWritersQA.repository.QuestionRepository;
 import com.sda.badAssWritersQA.badAssWritersQA.repository.QuestionnaireRepository;
+import com.sda.badAssWritersQA.badAssWritersQA.repository.UserResponsesRepository;
+import com.sda.badAssWritersQA.badAssWritersQA.services.UserResponsesService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -26,7 +30,8 @@ public class BadAssWritersQaApplication {
 	@Bean
 	CommandLineRunner initDatabase(AnswerRepository answerRepository,
 								   QuestionRepository questionRepository,
-								   QuestionnaireRepository questionnaireRepository) {
+								   QuestionnaireRepository questionnaireRepository,
+								   UserResponsesRepository userResponsesRepository) {
 		return args -> {
 
 			Answer answer1 = answerRepository.save(new Answer("odp1", true));
@@ -175,6 +180,12 @@ public class BadAssWritersQaApplication {
 
 			Questionnaire questionnaire1 = questionnaireRepository.save( new Questionnaire("Matematyka", questions));
 			Questionnaire questionnaire2 = questionnaireRepository.save( new Questionnaire("Geografia", questions));
+
+			String uniqueId = new UserResponsesService(userResponsesRepository).generateUniqueId().toString();
+			UserResponses userResponses1 = userResponsesRepository.save(new UserResponses(answer1, question1,questionnaire1, uniqueId));
+			UserResponses userResponses2 = userResponsesRepository.save(new UserResponses(answer2, question2, questionnaire1, uniqueId));
+
+
 
 		};
 	}
