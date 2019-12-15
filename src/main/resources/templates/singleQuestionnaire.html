@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl" xmlns:th="http://www.thymeleaf.org">>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8" lang="pl">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,21 +16,28 @@
     <!-- Content here -->
 
 <!--    tutaj będzie potrzebny formularz form i radio button group -->
+    <form method="post" action="send.php">
     <ol>
 
         <div class="bg-red">
             <li th:each="question1 : ${singleQuestionnaire.getQuestion()}">
+
+
                 <div class="alert-primary" th:text="${question1.getQuestion()}"></div>
-                <div th:each="singleAnswere: ${question1.getAnswers()}">
-                    <div class="border-1">
-                        <button type="button" class="btn btn-primary" th:text="${singleAnswere.getDescription()}">
-                        </button>
-                    </div>
+                <div class="radio" th:each="singleAnswere: ${question1.getAnswers()}">
+<!--                    <div class="border-1">-->
+                        <input type="radio" th:name="${question1.getId()}" th:text="${singleAnswere.getDescription()}" th:value="${question1.getAnswers()}" ><br>
+<!--                        <input type="radio" name="Pytanie1" value="false" > False <br>-->
+
+<!--                    </div>-->
                 </div>
+
             </li>
         </div>
 
     </ol>
+
+    </form>
 
 
 </div>
