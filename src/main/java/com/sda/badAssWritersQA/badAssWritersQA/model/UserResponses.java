@@ -1,20 +1,17 @@
 package com.sda.badAssWritersQA.badAssWritersQA.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 @Entity
 public class UserResponses {
     @Id
     @GeneratedValue
     private long id;
-    @OneToOne
+    @ManyToOne
     private Answer answer;
-    @OneToOne
+    @ManyToOne
     private Question question;
-    @OneToOne
+    @ManyToOne
     private Questionnaire questionnaire;
 
     public UserResponses(){}
