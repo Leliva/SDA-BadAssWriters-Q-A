@@ -13,6 +13,8 @@ public class Answer {
     private long id;
     private String description;
     private boolean correctAnswer;
+    private long answerCounter;
+
 
     public Answer(){
 
@@ -43,8 +45,16 @@ public class Answer {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
+    }
+
+    public long getAnswerCounter() {
+        return answerCounter;
+    }
+
+    public void setAnswerCounter(long answerCounter) {
+        this.answerCounter = answerCounter;
     }
 
     @Override

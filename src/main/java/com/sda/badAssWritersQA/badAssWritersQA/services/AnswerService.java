@@ -10,13 +10,15 @@ import java.util.List;
 public class AnswerService {
 
     private AnswerRepository answerRepository;
+    private Answer answer;
 
     public AnswerService(AnswerRepository answerRepository) {
         this.answerRepository = answerRepository;
     }
 
     public Answer getAnserById(Long id) throws AnswerNotFoundException {
-        return answerRepository.findById(id).orElseThrow(() -> new AnswerNotFoundException("Could not found answer with id: " + id));
+        return answerRepository.findById(id).orElseThrow(() -> new AnswerNotFoundException("Could " +
+                "not found answer with id: " + id));
     }
 
     public Answer createNewAnswer(Answer answer) {
@@ -26,4 +28,17 @@ public class AnswerService {
     public List<Answer> getAllAnswers() {
         return answerRepository.findAll();
     }
+
+    public void setCounter(Long id){
+
+        Answer tempAnswer;
+
+        tempAnswer = answerRepository.findById(id).get();
+
+        tempAnswer.setAnswerCounter(answerRepository.findById(id).get().getAnswerCounter()+1);
+
+        answerRepository.save(tempAnswer);
+
+    }
+
 }

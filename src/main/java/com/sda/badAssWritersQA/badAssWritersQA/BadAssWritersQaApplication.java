@@ -44,8 +44,8 @@ public class BadAssWritersQaApplication {
 
 
 			Question question1 = questionRepository.save(new Question("Czy 2+2 to 4?", answers1));
-			Question question2 = questionRepository.save(new Question("Czy 4^2 to 16?", answers1));
-			Question question3 = questionRepository.save(new Question("Czy Warszawa to wieś?",answers2));
+			Question question2 = questionRepository.save(new Question("Czy 4^2 to 16?", answers2));
+			Question question3 = questionRepository.save(new Question("Czy Warszawa to wieś?",answers1));
 			Question question4 = questionRepository.save(new Question("Czy Reszów to miasto wojewódzkie?", answers2));
 
 
