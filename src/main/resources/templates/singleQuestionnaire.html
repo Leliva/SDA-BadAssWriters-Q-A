@@ -25,7 +25,7 @@
                 <li th:each="question1, itemStat : ${singleQuestionnaire.getQuestion()}">
 
 
-                    <div class="alert-primary" th:text="${question1.getQuestion()}"></div>
+                    <div class="alert-success" th:text="${question1.getQuestion()}"></div>
                     <div class="radio" th:each="singleAnswere: ${question1.getAnswers()}">
                         <!--                    <div class="border-1">-->
                         <input type="radio" th:name="${question1.getId()}" th:text="${singleAnswere.getDescription()}"
@@ -34,17 +34,6 @@
 
                         <!--                    </div>-->
                     </div>
-
-
-
-<!--                    <div class="radio" th:each="singleAnswer, itemStat: *{answerList}">-->
-<!--                        &lt;!&ndash;                    <div class="border-1">&ndash;&gt;-->
-<!--                        <input type="radio" th:name="${question1.getId()}" th:text="${singleAnswer.getDescription()}"-->
-<!--                                th:field="*{answerList[]}"><br>-->
-<!--                        &lt;!&ndash;                        <input type="radio" name="Pytanie1" value="false" > False <br>&ndash;&gt;-->
-
-<!--                        &lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--                    </div>-->
 
 
                 </li>
