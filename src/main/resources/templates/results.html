@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" lang="pl">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>View of single questionnaire</title>
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/main.css}"/>
+
+</head>
+<body class="bg-info">
+
+<div class="container">
+    <!-- Content here -->
+
+    <!--    tutaj będzie potrzebny formularz form i radio button group -->
+
+<a class="questionaryName" th:text="${questionaire.getName()}"></a>
+    <div th:each="q : ${questionaire.getQuestion()}">
+        <a class="questionName" th:text="${q.getQuestion()}"></a>
+        <div th:each="a : ${q.getAnswers()}">
+            <a class="anwersName" th:text="|${a.getDescription()}   ${a.getAnswerCounter() }|"> </a>
+        </div>
+    </div>
+
+
+</div>
+
+</body>
+</html>

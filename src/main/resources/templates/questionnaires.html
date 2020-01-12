@@ -24,6 +24,8 @@
                         th:href="@{'/singleQuestionnaire/'+${questionnaire.id}}"  th:text="${questionnaire.getName()}">
                 </a>
             </div>
+            <a lass=" btn btn-primary" role="button"
+               th:href="@{'/singleQuestionnaire/conuter/'+${questionnaire.id}}"> Wyniki</a>
         </li>
     </ol>
 

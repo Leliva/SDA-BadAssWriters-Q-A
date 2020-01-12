@@ -29,7 +29,7 @@
                     <div class="radio bg-info" th:each="singleAnswere: ${question1.getAnswers()}">
                         <!--                    <div class="border-1">-->
                         <input type="radio" th:name="${question1.getId()}" th:text="${singleAnswere.getDescription()}"
-                               th:value="${singleAnswere.getId()}" th:field="*{answerList[__${itemStat.index}__].id}"><br>
+                               th:value="${singleAnswere.getId()}" th:field="*{answerList[__${itemStat.index}__].id}" ><br>
                         <!--                        <input type="radio" name="Pytanie1" value="false" > False <br>-->
 
                         <!--                    </div>-->
