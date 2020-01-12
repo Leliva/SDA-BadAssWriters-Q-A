@@ -6,10 +6,8 @@ import com.sda.badAssWritersQA.badAssWritersQA.model.Answer;
 import com.sda.badAssWritersQA.badAssWritersQA.model.Question;
 import com.sda.badAssWritersQA.badAssWritersQA.model.Questionnaire;
 import com.sda.badAssWritersQA.badAssWritersQA.repository.QuestionRepository;
-import com.sda.badAssWritersQA.badAssWritersQA.services.AnswerService;
-import com.sda.badAssWritersQA.badAssWritersQA.services.CollectionOfAnswers;
-import com.sda.badAssWritersQA.badAssWritersQA.services.QuestionService;
-import com.sda.badAssWritersQA.badAssWritersQA.services.QuestionnaireService;
+import com.sda.badAssWritersQA.badAssWritersQA.services.*;
+import com.sun.org.apache.bcel.internal.generic.ARETURN;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +19,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 
 @Validated
 @Controller
@@ -30,6 +30,7 @@ public class QuestionnaireController {
     private QuestionnaireService questionnaireService;
     private QuestionService questionService;
     private AnswerService answerService;
+
 
 
 
@@ -71,6 +72,22 @@ public class QuestionnaireController {
         return "singleQuestionnaire";
     }
 
+    @GetMapping("/singleQuestionnaire/conuter/{id}")
+    public String counterConrolerEndpoint(@PathVariable Long id, Model model) throws QuestionnaireNotFoundExeption {
+
+       Questionnaire questionnaire = questionnaireService.getQuestionnaireById(id);
+
+//        for(Question q: questionnaireService.getQuestionnaireById(id).getQuestion()){
+//            for (Answer a: q.getAnswers()){
+//                a.getAnswerCounter();
+//            }
+//
+//        }
+        model.addAttribute("questionaire",questionnaire);
+        return "results";
+
+    }
+
 
     @PostMapping("/singleQuestionnaire/{id}")
     public String setCounterForSpecificAnswer(@ModelAttribute CollectionOfAnswers collectionOfAnswers){
@@ -80,5 +97,6 @@ public class QuestionnaireController {
 
       return "redirect:/";
     }
+
 
 }

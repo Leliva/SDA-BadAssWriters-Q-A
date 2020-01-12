@@ -17,6 +17,7 @@
 <h1>Lista Ankiet</h1>
     <a th:href="@{/spittles}"> Utwórz nową ankietę</a> </br>
 <a th:href="@{/spitter/register}">Utwórz nowy quiz</a>
+
     <a th:text="'Hello, '+${message}"></a>
 
     <ol>
@@ -26,6 +27,8 @@
                         th:href="@{'/singleQuestionnaire/'+${questionnaire.id}}"  th:text="${questionnaire.getName()}">
                 </a>
             </div>
+            <a lass=" btn btn-primary" role="button"
+               th:href="@{'/singleQuestionnaire/conuter/'+${questionnaire.id}}"> Wyniki</a>
         </li>
     </ol>
 
