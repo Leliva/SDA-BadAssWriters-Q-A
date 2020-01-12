@@ -10,18 +10,21 @@
     <link rel="stylesheet" th:href="@{/main.css}"/>
 
 </head>
-<body>
+<body style="background-color: rgba(50, 115, 220, 0.3);">
 
 <div class="container">
 
-<h1>Lista Ankiet</h1>
-    <a class="btn btn-danger" role="button" th:href="@{/createQuestionnaire}"> Dodaj nową ankietę</a> </br>
+    <h1>QUIZOWNIA</h1>
+    <a class="btn btn-secondary"  th:href="@{/createQuestionnaire}"> Utwórz nową ankietę</a>
+
+
+    <h4 style="padding-top: 15px">Lista Quizów:</h4>
 
     <ol>
         <li th:each="questionnaire : ${questionnaires}">
-            <div>
-                <a class=" btn btn-success" role="button"
-                        th:href="@{'/singleQuestionnaire/'+${questionnaire.id}}"  th:text="${questionnaire.getName()}">
+            <div style="padding-bottom: 5px">
+                <a class="btn btn-primary btn-lg btn-block" role="button"
+                   th:href="@{'/singleQuestionnaire/'+${questionnaire.id}}" th:text="${questionnaire.getName()}">
                 </a>
             </div>
             <a lass=" btn btn-primary" role="button"
