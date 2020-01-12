@@ -7,10 +7,10 @@
     <title>View of single questionnaire</title>
 
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
-    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" th:href="@{/main.css}"/>
 
 </head>
-<body class="bg-info">
+<body>
 
 <div class="container">
     <!-- Content here -->
@@ -25,8 +25,8 @@
                 <li th:each="question1, itemStat : ${singleQuestionnaire.getQuestion()}">
 
 
-                    <div class="alert-success" th:text="${question1.getQuestion()}"></div>
-                    <div class="radio" th:each="singleAnswere: ${question1.getAnswers()}">
+                    <div class="bg-success" th:text="${question1.getQuestion()}"></div>
+                    <div class="radio bg-info" th:each="singleAnswere: ${question1.getAnswers()}">
                         <!--                    <div class="border-1">-->
                         <input type="radio" th:name="${question1.getId()}" th:text="${singleAnswere.getDescription()}"
                                th:value="${singleAnswere.getId()}" th:field="*{answerList[__${itemStat.index}__].id}"><br>

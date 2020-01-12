@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" lang="pl">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>View of a form to create new questionnaire</title>
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/main.css}"/>
+
+</head>
+<body>
+
+<form method="post" th:object="${form}">
+    <div class="divInputOfQuestionnaireName">
+        <input class="inputOfQuestionnaireName" type="text" placeholder="Questionnaire name" th:field="*{name}"/>
+    </div>
+
+    <div class="divInputOfQuestionContent" th:each="q, questionItemStat: ${questionnaire.getQuestion()}">
+        <input class="inputOfQuestionContent" type="text" placeholder="Question" th:field="*{question[__${questionItemStat.index}__].question}"/>
+        <div class="divInputOfAnswerDescription" th:each="a, answerItemS: ${q.getAnswers()}">
+
+                <input class="inputOfAnswerDescription" type="text" placeholder="AnswerDescription"
+                       th:field="*{question[__${questionItemStat.index}__].answers[__${answerItemS.index}__].description}"/>
+
+        </div>
+
+    </div>
+
+    <p>
+        <input class="alert-success" type="submit" value="Submit"/>
+        <input class="alert-danger" type="reset" value="Reset"/>
+    </p>
+
+</form>
+
+</body>
+</html>

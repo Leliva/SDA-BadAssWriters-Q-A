@@ -4,22 +4,25 @@ package com.sda.badAssWritersQA.badAssWritersQA.model;
 import org.hibernate.annotations.ManyToAny;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 public class Question {
     @Id
-    @GeneratedValue
-    private long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String question;
-    @ManyToMany
-    private Collection<Answer> answers;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "question_id")
+    private List<Answer> answers = new ArrayList<>();
 
     public Question(){
 
     }
 
-    public Question(String question, Collection<Answer> answers) {
+    public Question(String question, List<Answer> answers) {
         this.question = question;
         this.answers = answers;
     }
@@ -36,15 +39,16 @@ public class Question {
         return answers;
     }
 
-    public void setAnswers(Collection<Answer> answers) {
-        this.answers = answers;
+    public void setAnswers(List<Answer> answers) {
+        this.answers.clear();
+        this.answers.addAll(answers);
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

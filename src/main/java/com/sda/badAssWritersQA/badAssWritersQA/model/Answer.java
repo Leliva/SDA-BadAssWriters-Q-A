@@ -9,8 +9,8 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Answer {
     @Id
-    @GeneratedValue
-    private long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String description;
     private boolean correctAnswer;
     private long answerCounter;
@@ -41,11 +41,11 @@ public class Answer {
         this.correctAnswer = correctAnswer;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

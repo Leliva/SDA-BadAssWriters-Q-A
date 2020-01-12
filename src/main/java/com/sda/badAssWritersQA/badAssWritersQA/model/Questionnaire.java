@@ -5,23 +5,26 @@ import javax.persistence.*;
 import javax.persistence.GeneratedValue;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 public class Questionnaire {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
     private String name;
-    @OneToMany
-    private Collection<Question> question;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "questionnaire_id")
+    private List<Question> question = new ArrayList<>();
 
 
     public Questionnaire() {
 
     }
 
-    public Questionnaire(String name, Collection<Question> question) {
+    public Questionnaire(String name, List<Question> question) {
         this.name = name;
         this.question = question;
     }
@@ -38,15 +41,16 @@ public class Questionnaire {
         return question;
     }
 
-    public void setQuestion(Collection<Question> question) {
-        this.question = question;
+    public void setQuestion(List<Question> question) {
+        this.question.clear();
+        this.question.addAll(question);
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

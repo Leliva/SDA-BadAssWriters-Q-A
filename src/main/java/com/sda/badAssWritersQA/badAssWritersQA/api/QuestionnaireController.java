@@ -22,6 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 @Validated
 @Controller
@@ -67,13 +68,12 @@ public class QuestionnaireController {
         }
 
         model.addAttribute("form",collectionOfAnswers);
-        Questionnaire questionnaire1 = questionnaireService.getQuestionnaireById(id);
         return "singleQuestionnaire";
     }
 
 
     @PostMapping("/singleQuestionnaire/{id}")
-    public String setCounterForSpecificAnswer(@ModelAttribute CollectionOfAnswers collectionOfAnswers){
+    public String setCounterForSpecificAnswer(@Valid @ModelAttribute CollectionOfAnswers collectionOfAnswers){
         for (Answer a: collectionOfAnswers.getAnswerList()) {
             answerService.setCounter(a.getId());
         }
@@ -81,4 +81,35 @@ public class QuestionnaireController {
       return "redirect:/";
     }
 
+    @GetMapping("/createQuestionnaire")
+    public String getCreateQuestionnaireForm(Model model){
+        List<Answer> answerList = new ArrayList<>();
+        for(int i=0; i<2;i++){
+            answerList.add(new Answer());
+        }
+
+        List<Question> questionList = new ArrayList<>();
+        for(int i=0; i<2;i++){
+            questionList.add(new Question());
+        }
+        Questionnaire questionnaire = new Questionnaire();
+
+        for (Question q:
+             questionList) {
+            q.setAnswers(answerList);
+        }
+        questionnaire.setQuestion(questionList);
+
+        model.addAttribute("questionnaire",questionnaire);
+        model.addAttribute("form",questionnaire);
+        return "createQuestionnaire";
+    }
+
+    @PostMapping("/createQuestionnaire")
+    public String createQuestionnaire(@Valid @ModelAttribute Questionnaire questionnaire){
+
+        questionnaireService.createQuestionnaire(questionnaire);
+
+        return "redirect:/";
+    }
 }

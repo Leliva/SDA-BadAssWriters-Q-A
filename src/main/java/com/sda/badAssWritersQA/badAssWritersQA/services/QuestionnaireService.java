@@ -27,4 +27,10 @@ public class QuestionnaireService {
     public Questionnaire getQuestionnaireById(Long id) throws QuestionnaireNotFoundExeption {
         return questionnaireRepository.findById(id).orElseThrow(()-> new QuestionnaireNotFoundExeption("Could not find Questionnaire with id: " + id));
     }
+
+    public void createQuestionnaire(Questionnaire questionnaire) {
+
+        questionnaireRepository.save(questionnaire);
+
+    }
 }

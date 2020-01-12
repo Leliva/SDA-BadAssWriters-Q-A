@@ -1,5 +1,6 @@
 package com.sda.badAssWritersQA.badAssWritersQA;
 
+import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import com.sda.badAssWritersQA.badAssWritersQA.model.Answer;
 import com.sda.badAssWritersQA.badAssWritersQA.model.Question;
@@ -12,12 +13,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import javax.transaction.Transactional;
 import javax.xml.stream.Location;
 import java.time.LocalDate;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 @SpringBootApplication
 public class BadAssWritersQaApplication {
@@ -32,29 +31,38 @@ public class BadAssWritersQaApplication {
 								   QuestionnaireRepository questionnaireRepository) {
 		return args -> {
 
-			Answer answer1 = answerRepository.save(new Answer("odp1", true));
-			Answer answer2 = answerRepository.save(new Answer("odp2", false));
-			Answer answer3 = answerRepository.save(new Answer("odp3", true));
-			Answer answer4 = answerRepository.save(new Answer("odp4", false));
+			Answer answer1 = new Answer("Quentin Tarantino", true);
+			Answer answer2 = new Answer("Roman Polański", false);
+			Answer answer3 = new Answer("Chyba Pulp Fiction", true);
+			Answer answer4 = new Answer("Na pewno Pulp Fiction", false);
+
+			Answer answer5 = new Answer("w Afryce", true);
+			Answer answer6 = new Answer("w Azji", false);
+			Answer answer7 = new Answer("Rosja", true);
+			Answer answer8 = new Answer("Polska", false);
 
 
-			Set<Answer> answers1 = Sets.newHashSet(answer1,answer2);
+			List<Answer> answers1 = Lists.newArrayList(answer1,answer2);
 
-			Set<Answer> answers2 = Sets.newHashSet(answer3,answer4);
+			List<Answer> answers2 = Lists.newArrayList(answer3,answer4);
 
+			List<Answer> answers3 = Lists.newArrayList(answer5,answer6);
 
-			Question question1 = questionRepository.save(new Question("Czy 2+2 to 4?", answers1));
-			Question question2 = questionRepository.save(new Question("Czy 4^2 to 16?", answers2));
-			Question question3 = questionRepository.save(new Question("Czy Warszawa to wieś?",answers1));
-			Question question4 = questionRepository.save(new Question("Czy Reszów to miasto wojewódzkie?", answers2));
+			List<Answer> answers4 = Lists.newArrayList(answer7,answer8);
 
 
-			Set<Question> questions1 = Sets.newHashSet(question1,question2);
+			Question question1 = new Question("Najlepszy reżyser to?", answers1);
+			Question question2 = new Question("Najlepszy film Tarantino to?", answers2);
+			Question question3 = new Question("Na jakim kontynencie leży Angola?",answers3);
+			Question question4 = new Question("Jaki kraj ma najwiekszą powierzchnię?", answers4);
 
-			Set<Question> questions2 = Sets.newHashSet(question3,question4);
+
+			List<Question> questions1 = Lists.newArrayList(question1,question2);
+
+			List<Question> questions2 = Lists.newArrayList(question3,question4);
 
 
-			Questionnaire questionnaire1 = questionnaireRepository.save( new Questionnaire("Matematyka", questions1));
+			Questionnaire questionnaire1 = questionnaireRepository.save( new Questionnaire("Kinematografia", questions1));
 
 
 			Questionnaire questionnaire2 = questionnaireRepository.save( new Questionnaire("Geografia", questions2));

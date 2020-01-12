@@ -7,22 +7,20 @@
     <title>Spring Boot Thymeleaf Hello World Example</title>
 
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
-    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" th:href="@{/main.css}"/>
 
 </head>
-<body class="bg-info">
+<body>
 
 <div class="container">
 
 <h1>Lista Ankiet</h1>
-    <a th:href="@{/spittles}"> Utwórz nową ankietę</a> </br>
-<a th:href="@{/spitter/register}">Utwórz nowy quiz</a>
-    <a th:text="'Hello, '+${message}"></a>
+    <a class="btn btn-danger" role="button" th:href="@{/createQuestionnaire}"> Dodaj nową ankietę</a> </br>
 
     <ol>
         <li th:each="questionnaire : ${questionnaires}">
             <div>
-                <a class=" btn btn-primary" role="button"
+                <a class=" btn btn-success" role="button"
                         th:href="@{'/singleQuestionnaire/'+${questionnaire.id}}"  th:text="${questionnaire.getName()}">
                 </a>
             </div>
