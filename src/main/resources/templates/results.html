@@ -10,23 +10,21 @@
     <link rel="stylesheet" th:href="@{/main.css}"/>
 
 </head>
-<body class="bg-info">
+<body class="background">
 
 <div class="container">
-    <!-- Content here -->
 
-    <!--    tutaj będzie potrzebny formularz form i radio button group -->
-
-<a class="questionaryName" th:text="${questionaire.getName()}"></a>
+    <a class="questionaryName form-control form-control-lg" th:text="${questionaire.getName()}"></a>
     <div th:each="q : ${questionaire.getQuestion()}">
-        <a class="questionName" th:text="${q.getQuestion()}"></a>
+        <a class="questionName form-control" th:text="${q.getQuestion()}"></a>
         <div th:each="a : ${q.getAnswers()}">
-            <a class="anwersName" th:text="|${a.getDescription()}   ${a.getAnswerCounter() }|"> </a>
+            <div class="anwersName form-control">
+                <a th:text="${a.getDescription()}"></a>
+                <a th:text="${a.getAnswerCounter()}"></a>
+            </div>
         </div>
     </div>
 
-
 </div>
-
 </body>
 </html>

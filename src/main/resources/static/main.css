@@ -1,36 +1,57 @@
-body{
-    background-color: dimgray;
+.background {
+    background-color: rgba(50, 115, 220, 0.3);
 }
 
-.inputOfAnswerDescription{
-    border-radius: 15px;
+.inputOfAnswerDescription {
+    border-radius: 5px;
+    border-color: black;
     background-color: lightgreen;
     margin-left: 100px;
+    max-width: 900px;
+    margin-bottom: 5px;
 }
 
-.inputOfQuestionContent{
-    border-radius: 10px;
+.inputOfQuestionContent {
+    border-radius: 5px;
+    border-color: black;
     background-color: lightblue;
     margin-left: 70px;
+    max-width: 930px;
+    margin-top: 10px;
+    margin-bottom: 5px;
 }
 
-.inputOfQuestionnaireName{
+.inputOfQuestionnaireName {
     border-radius: 5px;
-    background-color: lightcoral;
-    margin-left: 20px;
+    border-color: black;
+    background-color: lightyellow;
+    max-width: 1000px;
+    margin-bottom: 5px;
 }
 
+.questionaryName {
+    border-radius: 5px;
+    border-color: black;
+    background-color: lightyellow;
+    max-width: 1000px;
+    margin-bottom: 5px;
+}
 
-.questionaryName{
-border-radius: 5px;
-background-color: lightcoral;
-margin-left: 20px;}
-.questionName{
-border-radius: 10px;
-background-color: lightblue;
-margin-left: 70px;}
+.questionName {
+    border-radius: 5px;
+    border-color: black;
+    background-color: lightblue;
+    margin-left: 70px;
+    max-width: 930px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
 
-.anwersName{
-border-radius: 15px;
-background-color: lightgreen;
-margin-left: 100px;}
+.anwersName {
+    border-radius: 5px;
+    border-color: black;
+    background-color: lightgreen;
+    margin-left: 100px;
+    max-width: 900px;
+    margin-bottom: 5px;
+}
